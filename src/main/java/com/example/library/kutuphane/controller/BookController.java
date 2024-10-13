@@ -39,11 +39,11 @@ public class BookController {
     public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book book) {
         Optional<Book> existingBook = bookService.getBookById(id);
         if (existingBook.isPresent()) {
-            book.setId(id); // Güncellenmek istenen kitabın ID'sini set et
-            Book updatedBook = bookService.saveBook(book); // Güncellenmiş kitabı kaydet
-            return ResponseEntity.ok(updatedBook); // Güncellenmiş kitabı döndür
+            book.setId(id);
+            Book updatedBook = bookService.saveBook(book);
+            return ResponseEntity.ok(updatedBook);
         } else {
-            return ResponseEntity.notFound().build(); // Kitap bulunamazsa 404 döndür
+            return ResponseEntity.notFound().build();
         }
     }
 
@@ -53,8 +53,4 @@ public class BookController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/hello")
-    public String test() {
-        return "merhabalar";
-    }
 }

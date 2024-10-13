@@ -12,13 +12,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
     private String title;
     private String author;
     private String isbn;
